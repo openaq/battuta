@@ -4,3 +4,4 @@ npm-debug.log
 newrelic_agent.log
 local.env
 ecs-task-generated.json
+package-lock.json
