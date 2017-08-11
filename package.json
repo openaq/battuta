@@ -4,7 +4,7 @@
   "description": "Reverse geocoding for air quality stations",
   "main": "eea-locations.js",
   "scripts": {
-    "start": "babel-node --presets es2015 eea-locations.js"
+    "battuta": "babel-node --presets es2015 eea-locations.js"
   },
   "repository": {
     "type": "git",
@@ -24,6 +24,7 @@
     "csv-parse": "^1.2.1",
     "dotenv": "^4.0.0",
     "fs": "0.0.1-security",
+    "jsonlint": "^1.6.2",
     "lodash": "^4.17.4",
     "lodash.uniqby": "^4.7.0",
     "request": "^2.81.0"
