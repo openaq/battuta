@@ -3,7 +3,7 @@ Reverse geocoding for air quality stations
 
 ### Overview
 
-batutta checks a [metadata file](http://discomap.eea.europa.eu/map/fme/metadata/PanEuropean_metadata.csv) provided by the European Environmental Agency nightly and updates `./eea-staiton.json` when new stations are found in that metadata file.
+batutta checks the [metadata file](http://discomap.eea.europa.eu/map/fme/metadata/PanEuropean_metadata.csv) provided by the European Environmental Agency nightly and updates `./eea-staiton.json` when new stations are found in that metadata file.
 
 batutta uses Mapzen's [pelias](https://github.com/pelias/pelias) for the reverse geocoding.
 
