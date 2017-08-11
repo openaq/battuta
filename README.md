@@ -25,6 +25,14 @@ batutta uses Mapzen's [pelias](https://github.com/pelias/pelias) for the reverse
 
 `$ npm install`
 
+### For linting
+
+`$ npm install -g jsonlint`
+
 ### Run
 
-`$ npm run start`
+`$ npm run battuta`
+
+### Ensure Valid output
+
+`$ npm run lint-json`
