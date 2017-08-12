@@ -17,7 +17,7 @@ deploy:
     skip_cleanup: true
     script: "./update-stations.sh"
     on:
-      branch: ${MASTER_BRANCH}
+      branch: master
 
 
 
