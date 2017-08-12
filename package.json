@@ -5,7 +5,7 @@
   "main": "eea-locations.js",
   "scripts": {
     "battuta": "babel-node --presets es2015 eea-locations.js",
-    "lint-stations": "jsonlint -q eea-station.json"
+    "lint-stations": "jsonlint -q eea-stations.json"
   },
   "repository": {
     "type": "git",
