@@ -1,11 +1,11 @@
 sudo: true
 language: node_js
 node_js:
-  - '4.0'
+  - '5.0'
 install: npm install
 before_script:
   - chmod +x ./update-stations.sh
-  - chomd +x ./make-station-history.sh
+  - chmod +x ./make-station-history.sh
   - npm run battuta
   - npm run lint-stations
 script:
