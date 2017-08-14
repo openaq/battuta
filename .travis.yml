@@ -4,7 +4,7 @@ node_js:
   - '5.0'
 install: npm install
 before_script:
-  - chmod +x ./update_data/update-stations.sh
+  - chmod +x ./update_data/update_data.sh
   - chmod +x ./make-station-history.sh
   - npm run battuta
   - npm run lint-stations
@@ -15,7 +15,7 @@ after_success: npm run lint-stations
 deploy:
   - provider: script
     skip_cleanup: true
-    script: "./update-stations.sh"
+    script: "./update_data/update_data.sh"
     on:
       branch: feature/nightly-build
 
