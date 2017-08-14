@@ -4,7 +4,7 @@ node_js:
   - '5.0'
 install: npm install
 before_script:
-  - chmod +x ./update_data/update_data.sh
+  - chmod +x ./.update_data/update_data.sh
   - chmod +x ./make-station-history.sh
   - npm run battuta
   - npm run lint-stations
