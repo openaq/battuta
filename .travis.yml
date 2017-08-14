@@ -19,6 +19,5 @@ deploy:
   bucket: battuta
   skip_cleanup: true
   local_dir: data
-  acl: public_read
   on:
     branch: feature/nightly-build
