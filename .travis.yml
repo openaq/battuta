@@ -13,11 +13,13 @@ script:
   - npm run battuta
 after_success: npm run lint-stations
 deploy:
-  - provider: script
+  - provider: s3
+    bucket: battuta
+    access_key_id: ${ACCESS_KEY_ID}
+    secret_access_key:
+      secure: mcppYEK3o+XhvUoo9XEoeLyBKcerkgwNREenQ7AKfgD+QAectwPXeszY+xCw5VlDsV/j5oJ5CwIu9qRF05bgcr9hn+Ysx+PD8dz92/TN3tV/RFukHkKFRF0/Y+AoTNEfV4s968we5ACu+L+RHcMZg/pxZF0nLJT7coatS+/TsnZpMCMkzPSqFlwXCjiwyfIut8GwOoWIdkDeV0021Tqa1UonJEDstXCdzt1Jzly9oflV5TSkfrqy0grHU+jlZ4fBrY+1Z6VIw4eUF8BzzH7l0be9f3Zo3OEQLr4Q4qMZIXAwMMcBxSBL+oCLPb1IZwP2/7flnzJ+TEeOMZuC3DGupmt2yJ8WFpcVaIuDIlCQKYV5mUOF8KS8iPphUuZFnlaSIbY6eUBz4ahpeAXHqGeXSj7pvrDkrxG2igugyQkGdECyM2vQ+jStDHTbAq26llPd9qSrhcPJnyAmUVgAE2uJXgThPN1k3U0+qvyhltr8wEHcWe0w6GrEtJbEaMShI1vaXBAmYN8AEgWTepvG7waZb5YmKB5cyOISFT1o5xi3BgHirap7v6PPnYc0Bik0ElVH01Kyu/QnZXIOeSUXUg8XDyase/63pIvRbPE0nHsaojmTeER2G8CzQvb3oFoSYZTLzyAiTQLbi1FHjn2ArgfBDv9lM2bTEL3Wra7qj4rshr4=
     skip_cleanup: true
-    script: "./.update_data/update_data.sh"
+    local_dir: data
+    acl: public_read
     on:
       branch: feature/nightly-build
-
-
-

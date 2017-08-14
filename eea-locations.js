@@ -8,7 +8,7 @@ import { readFile, writeFile } from 'fs';
 import uniqBy from 'lodash.uniqby';
 require('dotenv').config();
 const request = baseRequest.defaults({timeout: 60000});
-const stationFile = './eea-stations.json';
+const stationFile = 'eea-stations.json';
 const apiKey = process.env.PELIAS_KEY;
 
 const getCities = (cb) => {
@@ -131,11 +131,10 @@ const reverseGeocodeStations = (stations, cb) => {
 };
 
 getCities((err, stations) => {
-  console.log(stations);
   if (!err || stations.length < 0) {
-    return writeFile(stationFile, JSON.stringify(stations), (err) => {
+    return writeFile('./data/' + stationFile, JSON.stringify(stations), (err) => {
       if (err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log('New stations added!');
     });
