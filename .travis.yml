@@ -8,17 +8,18 @@ before_script:
 - npm run battuta
 - npm run lint-stations
 script:
-- "./make-station-history.sh"
+- ./make-station-history.sh
 - npm run battuta
 after_success: npm run lint-stations
 deploy:
-- provider: s3
+  provider: s3
   access_key_id: ${ACCESS_KEY_ID}
   secret_access_key:
-    secure: "FycMIpaOzWq+yEL0e2FaA1bqLfTszTKI+ERuKdfJRBhNNolc6qeEiHVWcyVtfXmAkSzTfiVCe1Mqa+pIWWpddj6iCv1BE8BI2SzCbvuFCtl33XG6V0xBdcR8Jvo2ziMewe+/LW5UResnYSsTq7PZVFAM4W/Umtn//cmOxUwZEjoeUNHEJdw4HcP2tsk1vmV7mZVD5yLGvyIZGMkUM9nCBywN1zKNqU9DPsw6c3ZxTPaJtxpuM5WBUBC0+HNQuJPcrkP8v+jsi937I1OWirK7B2i6Cpled/on5gmm9oKyTl7GRVTbsYoi1pz0cZeWRN/c4gwoMb13OPsTecVuiR+9Q+3kCEmjCcuD4B3N8QQ1m5wWJs6mSp2d61LtDIL76hyv/yUDS/NJGWZx4lZ5HAjAFE0e61CyGSgvIDAya7uRv9dgN8A4ie99C+aZRPVAaNY10CGkDFUqrMgn7ApG6d95sRw6Y5hexBP0FJ0eHnvyBTu9OhKM2G7ktSh4d73DuuevxtH++S8uXY3lA3b8+1l4wbuZgW7kLUpxOUV5kWpGAXS6qtXeba6r62mPx4hvwiLv4rsdza2W455l4t4deql16N1eCTbd6uySveoXxH7Qs7lGv6f1sviYHuEGb0yd6NeeTIg1kjnnFmHBrR2NeO6joDP4cGdAnNV+FbV5/9HvmyQ="
+    secure: Sf0a/BdFxZgjPrdShyWwDk+4QfA5KoHxvn5uyChUpbSeTAoIycVKlP7d5Hspj6IDHwI2GAquNxXRtpJHKwp2ARGO5RmRNbe8UoSTKYz4/le63rNt/qUvVyxREecL2CGQCrl+xlOLkR19CZJeYespYVPb/EOO4+d5h+Y8Gi5k0uwMZ63DPT9oCrLUsB7EoHwvGV4KfB1dcoipKm7O3fc0FwdT4Q60W01VuXP6Hg6QdXH+ZLfEqIqe9q51+PzckOatH8HM0Vu61/CUp7hC11+qR10gQsMwRfq8cBFQewnz+UhwJcni2Wejsgh8NYFRMbYDjM3hQYws5TS+Bpevxo1eeONXZs9RILIT0TOzRsDzLyl0wlEURc2szPct1kZxxZLc+9vcDl7I66KSfwRkCjajVZRI0GVqvT3V1YKgd/SNws3I7pe3XqnnSpzi27rHc9rztITievYDYBm58ZuUFxqSbTQhLvgUwi7n6fAv1TG3q0eb/pHcvuYw5v/jP2Wr4Ap2GZ2v7SPRnjntBgqO4Lctw3IOgjUL1HsX/nGns5x8oZrEnYm2OnZWBVBdzK5hfHyD4VrrWLglGFlKJ5hSXEUu0o1jS/4Al0eYmM39POOVi50NkKe/6Xt45gm1o1ZXPvLprR4IXMCJ6FYcIzCCBX23ZZ6M/8s+Y8ndgfa4U0We3c8=
   bucket: battuta
-  skip_cleanup: true
-  local_dir: data
+  local-dir: data
   acl: public_read
+  skip_cleanup: true
   on:
+    repo: openaq/battuta
     branch: feature/nightly-build
