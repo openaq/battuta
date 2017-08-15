@@ -4,11 +4,7 @@ node_js:
 - '5.0'
 install: npm install
 before_script:
-- chmod +x ./make-station-history.sh
-- npm run battuta
-- npm run lint-stations
 script:
-- ./make-station-history.sh
 - npm run battuta
 after_success: npm run lint-stations
 deploy:
@@ -21,4 +17,4 @@ deploy:
   skip_cleanup: true
   on:
     repo: openaq/battuta
-    branch: feature/nightly-build
+    branch: master
