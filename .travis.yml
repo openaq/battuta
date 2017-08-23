@@ -1,0 +1,20 @@
+sudo: true
+language: node_js
+node_js:
+- '4.8'
+install: npm install
+before_script:
+script:
+- npm run battuta
+after_success: npm run lint-stations
+deploy:
+  provider: s3
+  access_key_id: ${ACCESS_KEY_ID}
+  secret_access_key:
+    secure: Sf0a/BdFxZgjPrdShyWwDk+4QfA5KoHxvn5uyChUpbSeTAoIycVKlP7d5Hspj6IDHwI2GAquNxXRtpJHKwp2ARGO5RmRNbe8UoSTKYz4/le63rNt/qUvVyxREecL2CGQCrl+xlOLkR19CZJeYespYVPb/EOO4+d5h+Y8Gi5k0uwMZ63DPT9oCrLUsB7EoHwvGV4KfB1dcoipKm7O3fc0FwdT4Q60W01VuXP6Hg6QdXH+ZLfEqIqe9q51+PzckOatH8HM0Vu61/CUp7hC11+qR10gQsMwRfq8cBFQewnz+UhwJcni2Wejsgh8NYFRMbYDjM3hQYws5TS+Bpevxo1eeONXZs9RILIT0TOzRsDzLyl0wlEURc2szPct1kZxxZLc+9vcDl7I66KSfwRkCjajVZRI0GVqvT3V1YKgd/SNws3I7pe3XqnnSpzi27rHc9rztITievYDYBm58ZuUFxqSbTQhLvgUwi7n6fAv1TG3q0eb/pHcvuYw5v/jP2Wr4Ap2GZ2v7SPRnjntBgqO4Lctw3IOgjUL1HsX/nGns5x8oZrEnYm2OnZWBVBdzK5hfHyD4VrrWLglGFlKJ5hSXEUu0o1jS/4Al0eYmM39POOVi50NkKe/6Xt45gm1o1ZXPvLprR4IXMCJ6FYcIzCCBX23ZZ6M/8s+Y8ndgfa4U0We3c8=
+  bucket: battuta
+  local-dir: data
+  skip_cleanup: true
+  on:
+    repo: openaq/battuta
+    branch: master

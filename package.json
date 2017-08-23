@@ -1,0 +1,33 @@
+{
+  "name": "battuta",
+  "version": "1.0.0",
+  "description": "Reverse geocoding for air quality stations",
+  "main": "eea-locations.js",
+  "scripts": {
+    "battuta": "babel-node --presets es2015 eea-locations.js",
+    "lint-stations": "jsonlint -q eea-stations.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openaq/battuta.git"
+  },
+  "author": "Max Grossman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/openaq/battuta/issues"
+  },
+  "homepage": "https://github.com/openaq/battuta#readme",
+  "dependencies": {
+    "async": "^2.5.0",
+    "babel-cli": "^6.24.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-register": "^6.24.1",
+    "csv-parse": "^1.2.1",
+    "dotenv": "^4.0.0",
+    "fs": "0.0.1-security",
+    "jsonlint": "^1.6.2",
+    "lodash": "^4.17.4",
+    "lodash.uniqby": "^4.7.0",
+    "request": "^2.81.0"
+  }
+}
