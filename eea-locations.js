@@ -8,7 +8,7 @@ import { readFile, writeFile } from 'fs';
 import uniqBy from 'lodash.uniqby';
 require('dotenv').config();
 const request = baseRequest.defaults({timeout: 60000});
-const stationFile = './eea-stations.json';
+const stationFile = 'eea-stations.json';
 const apiKey = process.env.PELIAS_KEY;
 
 const getCities = (cb) => {
@@ -30,6 +30,7 @@ const getCities = (cb) => {
         if (err) {
           done(null, []);
         }
+        const stationFileData = JSON.parse(data.toString());
         map(JSON.parse(data.toString()), (station, cb) => {
           let id;
           if (station.stationId) {
@@ -42,7 +43,7 @@ const getCities = (cb) => {
           if (err) {
             done(null, []);
           }
-          done(null, stationIDs);
+          done(null, [stationFileData, stationIDs]);
         });
       });
     }
@@ -52,7 +53,7 @@ const getCities = (cb) => {
     }
     // filter metadata to only records that don't exist in our current records.
     filter(stationData[0], (record, done) => {
-      done(null, !(includes(stationData[1], record[5])));
+      done(null, !(includes(stationData[1][1], record[5])));
     }, (err, newStations) => {
       // do nothing if there is nothing new
       if (err || newStations.length === 0) {
@@ -69,7 +70,7 @@ const getCities = (cb) => {
             return cb('err', []);
           }
           // callback a combo of old and new stations
-          cb(null, stations.concat.apply(stationData[1]));
+          cb(null, stations.concat.apply(stationData[1][0]));
         });
       });
     });
@@ -125,15 +126,15 @@ const reverseGeocodeStations = (stations, cb) => {
     if (err) {
       return cb(null, []);
     }
-    cb('err', flatten(reverseGeocodedStations));
+    cb(null, flatten(reverseGeocodedStations));
   });
 };
 
 getCities((err, stations) => {
   if (!err || stations.length < 0) {
-    return writeFile(stationFile, stations, (err) => {
+    return writeFile('./data/' + stationFile, JSON.stringify(stations), (err) => {
       if (err) {
-        console.log(err);
+        return console.log(err);
       }
       console.log('New stations added!');
     });
