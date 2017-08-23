@@ -23,9 +23,11 @@ batutta uses Mapzen's [pelias](https://github.com/pelias/pelias) for the reverse
 
 ### Install
 
+##### Dependencies
+
 `$ npm install`
 
-### For linting
+##### Dependency for linting
 
 `$ npm install -g jsonlint`
 
