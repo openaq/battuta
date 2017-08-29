@@ -37,4 +37,4 @@ batutta uses Mapzen's [pelias](https://github.com/pelias/pelias) for the reverse
 
 ### Ensure Valid output
 
-`$ npm run lint-json`
+`$ npm run lint-stations`
