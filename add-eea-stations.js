@@ -5,7 +5,8 @@ import { addStations } from './utils/helpers';
 
 addStations((err, stations) => {
   if (!err || stations.length < 0) {
-    return writeFile('./data/eea-stations-all.json', JSON.stringify(stations), (err) => {
+    console.log('');
+    return writeFile('./data/eea-stations.json', JSON.stringify(stations), (err) => {
       if (err) {
         return console.log(err);
       }
