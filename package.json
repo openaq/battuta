@@ -4,8 +4,10 @@
   "description": "Reverse geocoding for air quality stations",
   "main": "eea-locations.js",
   "scripts": {
-    "battuta": "babel-node --presets es2015 eea-locations.js",
-    "lint-stations": "jsonlint -q eea-stations.json"
+    "battuta": "babel-node --presets es2015 add-eea-stations.js",
+    "init-battuta": "babel-node --presets es2015 init-eea-stations.js",
+    "lint-stations": "jsonlint -q eea-stations.json",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",
@@ -24,10 +26,20 @@
     "babel-register": "^6.24.1",
     "csv-parse": "^1.2.1",
     "dotenv": "^4.0.0",
+    "eslint": "^4.5.0",
     "fs": "0.0.1-security",
     "jsonlint": "^1.6.2",
     "lodash": "^4.17.4",
     "lodash.uniqby": "^4.7.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "tzwhere": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint-config-semistandard": "*",
+    "eslint-config-standard": "*",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
   }
 }
